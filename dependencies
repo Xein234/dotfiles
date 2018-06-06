@@ -1,0 +1,15 @@
+curl
+vimplug
+neovim
+python-neovim
+ipython
+ipdb
+python-ipdb
+pip install jedi
+sudo pip3 install jedi
+mkdir ~/Dev/Python/MIT/
+download my repo LMAO
+python-pylint
+mypy
+# nop flake8
+yaourt
