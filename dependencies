@@ -13,3 +13,6 @@ python-pylint
 mypy
 # nop flake8
 yaourt
+sudo pacman -Sy unrar
+tree unzip
+Keyboard: delay 300, rate 35
