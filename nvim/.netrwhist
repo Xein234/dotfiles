@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/xein/.config/dotfiles/nvim/after/ftplugin'
+let g:netrw_dirhist_2='/home/xein/.config/dotfiles/nvim/after'
+let g:netrw_dirhist_3='/'
+let g:netrw_dirhist_4='/home/xein/.config/nvim'
+let g:netrw_dirhist_5='/home/xein/.config'
+let g:netrw_dirhist_6='/home/xein/.config/dotfiles/nvim'
+let g:netrw_dirhist_7='/home/xein/.config/ipython/profile_default'

@@ -1,0 +1,10 @@
+$include /etc/inputrc
+set editing-mode vi
+$if mode=vi
+    set keymap vi-command
+    # these are for vi-command mode
+    #
+    # these are for vi-insert mode 
+    set keymap vi-insert
+    # "": vi-unix-word-rubout
+$endif
