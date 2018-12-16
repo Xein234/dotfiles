@@ -65,23 +65,23 @@ if ${use_color} ; then
 		fi
 	fi
 
-	if [[ ${EUID} == 0 ]] ; then
-		PS1='\[\033[01;31m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\$\[\033[00m\] '
-	else
-		PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\$\[\033[00m\] '
-	fi
+	# if [[ ${EUID} == 0 ]] ; then
+	# 	PS1='\[\033[01;31m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\$\[\033[00m\] '
+	# else
+	# 	PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\$\[\033[00m\] '
+	# fi
 
 	alias ls='ls --color=auto'
 	alias grep='grep --colour=auto'
 	alias egrep='egrep --colour=auto'
 	alias fgrep='fgrep --colour=auto'
-else
-	if [[ ${EUID} == 0 ]] ; then
-		# show root@ when we don't have colors
-		PS1='\u@\h \W \$ '
-	else
-		PS1='\u@\h \w \$ '
-	fi
+# else
+# 	if [[ ${EUID} == 0 ]] ; then
+# 		# show root@ when we don't have colors
+# 		PS1='\u@\h \W \$ '
+# 	else
+# 		PS1='\u@\h \w \$ '
+# 	fi
 fi
 
 unset use_color safe_term match_lhs sh
@@ -135,25 +135,5 @@ ex ()
 
 # better yaourt colors
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
-
-
-########################MY-CONFIG########################
-
-####funtionality####
-set -o vi
-alias wd='cd /home/xein/Dev/Python/MIT/6.0002/PS1/'
-alias v='nvim'
-alias con='setxkbmap -option caps:swapescape'
-alias cof='setxkbmap -option'
-export EDITOR=nvim
-export VISUAL=nvim
-export IPYTHONDIR='~/.config/ipython'
-
-####security####
-alias mv='mv -i'
-alias cp='cp -i'
-alias rm='rm -I'
-
-####aesthetics####
-export PS1="\[\033[01;32m\]>\[\033[01;37m\]\W\[\033[01;32m\] \$\[\033[00m\]"
-export PS2="\[\033[01;32m\]>\[\033[00m\]"
+xset r rate 271 25
+setxkbmap -option caps:swapescape
