@@ -8,6 +8,8 @@ alias cof='setxkbmap -option'
 export EDITOR=nvim
 export VISUAL=nvim
 export IPYTHONDIR='~/.config/ipython'
+alias sudo='sudo '
+alias ll='ls -lA'
 
 ####security####
 alias mv='mv -i'
