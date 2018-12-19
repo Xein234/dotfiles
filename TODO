@@ -1,0 +1,7 @@
+do i have to track the permissions?
+  files to load could copy their permissions from its correspondent
+  destination. and the only executable in this repo is load.sh
+then, i think it's not necessary to track them.
+#TODO: do not track permissions
+
+#TODO: remove .netrwhist from the repo
