@@ -22,7 +22,7 @@ filetype plugin indent on
 set expandtab softtabstop=2 shiftwidth=2
 
 "ale settings
-let g:ale_linters = {'python' : ['mypy', 'pylint']}
+let g:ale_linters = {'python' : ['mypy', 'pylint'], 'javascript' : ['eslint']}
 "flake8 is a stile linter, and it was reporting errors despite they were only
 "a stile issue
 highlight ALEError ctermbg=none cterm=underline
