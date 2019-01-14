@@ -12,49 +12,51 @@ if [ $UID != 0 ]; then
 fi
 
 backupDir=".backupDir/"
-for file in "$@"
+# map () {
+# }
+for linked in "$@"
 do
-   if [ -a "$file" ];then
-      case $file in
+   if [ -a "$linked" ];then
+      case $linked in
          # bash.bashrc) echo '/etc/bash.bashrc';;
-         ro) mapped="$PWD/test/ro";;
+         ro) linker="$PWD/test/ro";;
 
          "a b")
-            mapped="$PWD/test/a b"
+            linker="$PWD/test/a b"
             reload(){ echo "UwU, reloading "a b""; };;
 
-         *) echo "unknown path where to symlink to "$file"";;
-         #TODO: if unknown path where to load "$file", then
+         *) echo "unknown path where to symlink to "$linked"";;
+         #TODO: if unknown path where to load "$linked", then
          #skip the procedure below
 
       esac
 
-      echo "mapped links to: $(readlink "$mapped")"
-      if [ "$(realpath -s "$file")" = "$(readlink "$mapped")" ]; then
-         echo "$mapped is already a symlink to $file,"\
+      echo "linker links to: $(readlink "$linker")"
+      if [ "$(realpath -s "$linked")" = "$(readlink "$linker")" ]; then
+         echo "$linker is already a symlink to $linked,"\
               "it wheren't backuped, it is not the original." >&2
 
       else
-         [ -a "$mapped" ] && cp -i "$mapped" "$backupDir"
+         [ -a "$linker" ] && cp -i "$linker" "$backupDir"
          #TODO: inform the user why is been prompted and what will happen
       fi
 
-      if [ -a "$mapped" ];then
-         chown --reference="$mapped" "$file"
-         chmod --reference="$mapped" "$file"
+      if [ -a "$linker" ];then
+         chown --reference="$linker" "$linked"
+         chmod --reference="$linker" "$linked"
       else
-         echo "WARNING: $mapped does not exist,"\
+         echo "WARNING: $linker does not exist,"\
               "ownership and permissions wheren't copied" >&2
       fi
 
       #ln -s requieres absolute paths
-      ln -sf "$(realpath -s "$file")"  "$mapped"
+      ln -sf "$(realpath -s "$linked")"  "$linker"
       reload
    else
-      echo "$file does not exist in this directory, skiping it"
+      echo "$linked does not exist in this directory, skiping it"
    fi
 done
 #backup or #backUp?
-#TODO: error if mapped does not exist
+#TODO: error if linker does not exist
 #TODO: reload procedures assingning a func inside case and running it later
 #TODO: test for errors if the files contain spaces

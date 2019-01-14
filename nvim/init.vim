@@ -4,7 +4,9 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
-" (Optional) Multi-entry selection UI.  Plug 'junegunn/fzf' Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" (Optional) Multi-entry selection UI. 
+Plug 'junegunn/fzf'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'zchee/deoplete-jedi'
 
 " Plug 'w0rp/ale'
@@ -16,8 +18,11 @@ Plug 'kana/vim-textobj-entire'
 "ese de ariva no funciona lol ^^^
 ", { 'do': 'npm install -g tern' }
 
-
+Plug 'patstockwell/vim-monokai-tasty'
 call plug#end()
+colorscheme vim-monokai-tasty
+
+
 "deoplete settings:
 let g:deoplete#enable_at_startup = 1
 
@@ -45,12 +50,18 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
     \ 'python': ['pyls'],
+    \ 'sh': ['bash-language-server', 'start'],
+    \ 'java': ['jdtls'],
     \ }
+
+let g:LanguageClient_rootMarkers = ['.root', 'project.*', '.git/']
 
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
+set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 
 " call deoplete#custom#option('auto_complete_delay', 200)
-" set completefunc=LanguageClient#complete
+set completefunc=LanguageClient#complete
+call deoplete#custom#option('auto_complete_delay', 0)
