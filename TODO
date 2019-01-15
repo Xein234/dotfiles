@@ -7,3 +7,5 @@ then, i think it's not necessary to track them.
 #TODO: remove .netrwhist from the repo
 #there is actually 2 .netrwhist
 rm .eslintrc.js
+
+add the java lang server install/update script and the java lang server script it self

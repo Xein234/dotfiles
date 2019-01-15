@@ -33,7 +33,7 @@ set completeopt -=preview ""see :h set-=
 
 "tab settings:
 filetype plugin indent on
-set expandtab softtabstop=2 shiftwidth=2
+set expandtab softtabstop=3 shiftwidth=3
 
 "ale settings
 let g:ale_linters = {'python' : ['mypy', 'pylint'], 'javascript' : ['eslint']}
